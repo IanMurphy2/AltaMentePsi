@@ -181,7 +181,7 @@ const PaperCrane = ({ progress }: PaperCraneProps) => {
     const y = lerp(from.y, to.y, t);
     // The untouched sheet shows only its outline; facet edges appear as soon as it starts folding.
     const edges = index === 0 ? t : 1;
-    const creases = index === 0 ? 0.55 * clamp(raw / 0.1) * (1 - t) : 0;
+    const creases = index === 0 ? 0.55 * (1 - t) : 0;
     const done = value >= FOLD_STAGES - 1.001;
 
     return (

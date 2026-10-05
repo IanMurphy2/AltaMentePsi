@@ -5,16 +5,14 @@ import { CONTACT } from "../../content";
 
 interface SectionProps {
     id: string;
-    number?: string;
     title?: string;
     className?: string;
     children: ReactNode;
 }
 
 // Every section is one fold of the crane.
-const Section = ({ id, number, title, className = "", children }: SectionProps) => (
-    <section id={id} data-fold className={`flex min-h-svh flex-col justify-center py-20 lg:py-28 ${className}`}>
-        {number && <p className="eyebrow mb-5">{number}</p>}
+const Section = ({ id, title, className = "", children }: SectionProps) => (
+    <section id={id} data-fold className={`flex min-h-[65svh] flex-col justify-center py-14 lg:py-16 ${className}`}>
         {title && <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">{title}</h2>}
         {children}
     </section>
@@ -85,7 +83,7 @@ const Home = () => {
                 </aside>
 
                 <div ref={contentRef} className="prose-body px-6 sm:px-10 lg:pr-20 lg:pl-4 xl:pr-32">
-                    <Section id="inicio" className="lg:!pt-0">
+                    <Section id="inicio" className="!min-h-svh lg:!pt-0">
                         <p className="eyebrow">Espacio de psicología</p>
                         <h1 className="mt-6 font-display text-5xl tracking-[0.12em] text-ink uppercase sm:text-6xl xl:text-7xl">Alta Mente Psi</h1>
                         <p className="mt-10 font-display text-2xl text-ink italic sm:text-3xl">Hola, soy Walter Cárcamo, Licenciado en Psicología.</p>
@@ -97,7 +95,7 @@ const Home = () => {
                         </div>
                     </Section>
 
-                    <Section id="sobre-mi" number="01" title="Quién soy y cómo trabajo">
+                    <Section id="sobre-mi" title="Quién soy y cómo trabajo">
                         <div className="mt-8 max-w-xl space-y-5">
                             <p>
                                 Desde mis primeros pasos en la psicología me interesó crear espacios de escucha y confianza, donde cada persona pueda descubrir y fortalecer sus propios
@@ -110,7 +108,7 @@ const Home = () => {
                         </div>
                     </Section>
 
-                    <Section id="servicios" number="02" title="Cómo puedo ayudarte">
+                    <Section id="servicios" title="Cómo puedo ayudarte">
                         <ul className="mt-8 max-w-xl divide-y divide-line border-y border-line">
                             {services.map((service) => (
                                 <li key={service.title} className="py-6">
@@ -121,7 +119,7 @@ const Home = () => {
                         </ul>
                     </Section>
 
-                    <Section id="por-que" number="03" title="¿Por qué Alta Mente Psi?">
+                    <Section id="por-que" title="¿Por qué Alta Mente Psi?">
                         <div className="mt-8 max-w-xl space-y-5">
                             <p>Alta Mente Psi nace de la idea de elevar lo posible: una mente que se abre camino, aprende y se vuelve más flexible.</p>
                             <p>El nombre reúne tres sentidos:</p>
@@ -145,7 +143,7 @@ const Home = () => {
                         </blockquote>
                     </Section>
 
-                    <Section id="contacto" number="04" title="Contacto">
+                    <Section id="contacto" title="Contacto">
                         <div className="mt-8 flex max-w-xl flex-wrap gap-3">
                             <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="pill">
                                 Agendar por WhatsApp
@@ -184,7 +182,7 @@ const Home = () => {
                         </div>
                     </Section>
 
-                    <section id="primer-paso" data-fold className="flex min-h-svh flex-col justify-end pt-20">
+                    <section id="primer-paso" data-fold className="flex min-h-svh flex-col justify-end pt-12">
                         <h2 className="max-w-md font-display text-4xl leading-tight text-ink sm:text-5xl">¿Listo para dar el primer paso?</h2>
                         <div className="mt-6 grid items-end gap-8 sm:grid-cols-[1fr_auto]">
                             <div className="pb-6 sm:pb-20">
